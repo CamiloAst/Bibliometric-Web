@@ -5,7 +5,7 @@ import GraficaImagen from "./GraficaImagen";
 const ContenidoRequerimiento = ({ archivo, requerimiento, datos }) => {
   const base = `${
     import.meta.env.VITE_API_URL
-  }/media/resultados/${archivo}/${requerimiento}`;
+  }/api/${archivo}/${requerimiento}`;
 
   switch (requerimiento) {
     case "estadisticas":
