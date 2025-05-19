@@ -62,7 +62,6 @@ class ArchivoUploadView(APIView):
 class EstadisticasView(APIView):
     def get(self, request):
         nombre = request.GET.get("archivo")
-        print(f"{nombre}")
         if not nombre:
             return Response({"error": "Falta el parámetro 'archivo'"}, status=400)
 
@@ -73,9 +72,18 @@ class EstadisticasView(APIView):
             ruta_resultados = generar_estadisticas_completas(
                 archivo, output_dir=out_dir
             )
+
+            # Listar archivos generados
+            archivos_generados = os.listdir(out_dir)
+
             return Response(
-                {"mensaje": "Estadísticas generadas", "carpeta": ruta_resultados}
+                {
+                    "mensaje": "Estadísticas generadas",
+                    "carpeta": ruta_resultados,
+                    "archivos": archivos_generados,  # ⬅️ Aquí te muestra qué se generó
+                }
             )
+
         except Exception as e:
             return Response({"error": str(e)}, status=500)
 
