@@ -22,7 +22,7 @@ const SubirArchivo = ({ onUploadSuccess }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/subir/",
+        `${import.meta.env.VITE_API_URL}/subir/`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

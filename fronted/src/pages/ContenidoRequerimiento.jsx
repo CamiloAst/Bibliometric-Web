@@ -3,7 +3,9 @@ import TablaCSV from "./TablaCSV";
 import GraficaImagen from "./GraficaImagen";
 
 const ContenidoRequerimiento = ({ archivo, requerimiento, datos }) => {
-  const base = `http://localhost:8000/media/resultados/${archivo}/${requerimiento}`;
+  const base = `${
+    import.meta.env.VITE_API_URL
+  }/media/resultados/${archivo}/${requerimiento}`;
 
   switch (requerimiento) {
     case "estadisticas":
@@ -56,7 +58,7 @@ const ContenidoRequerimiento = ({ archivo, requerimiento, datos }) => {
               </h4>
 
               <img
-                src={`http://localhost:8000/media/resultados/${archivo}/categorias/${nombre}`}
+                src={`${base}/${nombre}`}
                 alt={nombre}
                 style={{ width: "100%", maxWidth: 800, marginBottom: "20px" }}
               />
