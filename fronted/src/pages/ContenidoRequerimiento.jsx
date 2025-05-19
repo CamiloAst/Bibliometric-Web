@@ -3,9 +3,7 @@ import TablaCSV from "./TablaCSV";
 import GraficaImagen from "./GraficaImagen";
 
 const ContenidoRequerimiento = ({ archivo, requerimiento, datos }) => {
-  const base = `${
-    import.meta.env.VITE_API_URL
-  }/media/resultados/${archivo}/${requerimiento}`;
+  const base = `https://bibliometric-web.onrender.com/media/resultados/${archivo}/${requerimiento}`;
 
   switch (requerimiento) {
     case "estadisticas":

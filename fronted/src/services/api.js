@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = `${import.meta.env.VITE_API_URL}/api`;
+const API_BASE = `https://bibliometric-web.onrender.com/api/`;
 
 // Devuelve la lista de archivos CSV sin extensión
 export const obtenerArchivos = () => axios.get(`${API_BASE}/archivos/`);
