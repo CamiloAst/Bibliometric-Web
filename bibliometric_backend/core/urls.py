@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
@@ -40,3 +42,4 @@ urlpatterns += [
     path("coherencia/", CoherenciaClustersView.as_view(), name="coherencia_clusters")
 ]
 urlpatterns += [path("archivos/", ArchivosList.as_view(), name="archivos-list")]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
